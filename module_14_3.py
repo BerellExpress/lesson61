@@ -119,5 +119,9 @@ async def send_confirm_message(call):
     await call.message.answer('Вы успешно приобрели продукт!')
     await call.answer()
 
+@dp.message_handler()
+async def all_messages(message):
+    await message.answer("К сожалению, я не знаю, как ответить на ваше сообщение.", reply_markup=kb)
+
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
